@@ -1,12 +1,5 @@
 { pkgs, ... }:
 
-let
-  vars = import ../variables.nix;
-in
-{
-  imports = [
-    ./git
-    ./gh
-  ];
-}
-    
+let vars = import ../variables.nix;
+in { imports = [ ./git ./vscode ]; }
+

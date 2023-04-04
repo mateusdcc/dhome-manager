@@ -1,9 +1,5 @@
 { pkgs, config, ... }:
 
 {
-  imports = [
-    ./bspwm
-    ./sxhkd
-    ./zsh
-  ];
+  imports = [ ./bspwm ./sxhkd ./zsh ];
 }

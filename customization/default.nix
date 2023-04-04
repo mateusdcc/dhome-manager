@@ -1,13 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [
-    ./gtk
-  ];
+  imports = [ ./gtk ];
 
   news.display = "notify";
   home.file.".background-image".source = ./images/geometry-dracula.png;
-  home.sessionVariables = {
-    EDITOR = "nvim";
-  };
+  home.sessionVariables = { EDITOR = "nvim"; };
 }

@@ -4,9 +4,8 @@ let
   vars = import ../variables.nix;
   # Fonts
   fonts = {
-    packages = with pkgs; [
-      (nerdfonts.override { fonts = [ "Iosevka" "FiraCode"]; })
-    ];
+    packages = with pkgs;
+      [ (nerdfonts.override { fonts = [ "Iosevka" "FiraCode" ]; }) ];
   };
 
   # Development Tools
@@ -18,20 +17,16 @@ let
       vim
       git
       gh
+      vscode
+      nixbang # Specify dependencies inside of a script
+      nixfmt # Format nix files
     ];
     config = import ./dev;
   };
 
   # Productivity Applications
   productivity = {
-    packages = with pkgs; [
-      alacritty
-      dmenu
-      polybar
-      picom
-      pure-prompt
-      xournal
-    ];
+    packages = with pkgs; [ alacritty dmenu polybar picom pure-prompt xournal ];
     config = import ./productivity;
   };
 
@@ -58,19 +53,12 @@ let
   };
 
   essentials = {
-    packages = with pkgs; [
-      bspwm
-      sxhkd
-      zsh
-      pure-prompt
-    ];
+    packages = with pkgs; [ bspwm sxhkd zsh pure-prompt ];
     config = import ./essentials;
   };
 
   customizations = {
-    packages = with pkgs; [
-      picom
-    ];
+    packages = with pkgs; [ picom ];
     config = import ./customizations;
   };
 
@@ -90,8 +78,7 @@ let
     essentials.config
     customizations.config
   ];
-in
-{
+in {
   home.packages = builtins.concatLists packages;
   imports = configFiles;
 }

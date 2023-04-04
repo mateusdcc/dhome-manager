@@ -1,4 +1,4 @@
-with import <nixpkgs> {};
+with import <nixpkgs> { };
 
 {
   gtk = {
@@ -15,6 +15,10 @@ with import <nixpkgs> {};
       package = pkgs.dracula-theme;
     };
   };
+  vscode = {
+    color_theme = "Dracula";
+    package = pkgs.vscode-extensions.dracula-theme.theme-dracula;
+  };
   background = "#282a36";
   current_line = "#44475a";
   foreground = "#f8f8f2";
@@ -27,4 +31,4 @@ with import <nixpkgs> {};
   red = "#ff5555";
   yellow = "#f1fa8c";
 }
-  
+

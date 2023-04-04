@@ -3,8 +3,7 @@
 let
   vars = import ../../../variables.nix;
   colors = vars.colors;
-in
-{
+in {
   programs.alacritty = {
     enable = true;
     settings = {
@@ -28,4 +27,4 @@ in
     };
   };
 }
-      
+

@@ -1,7 +1,5 @@
 { pkgs, ... }:
 
 {
-  imports = [
-    ./picom
-  ];
+  imports = [ ./picom ];
 }

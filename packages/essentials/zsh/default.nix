@@ -32,10 +32,8 @@
       prompt pure
     '';
 
-    history = {
-      save = 10000;
-    };
-    
+    history = { save = 10000; };
+
     shellAliases = {
       v = "$EDITOR";
       vim = "$EDITOR";

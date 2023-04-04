@@ -5,8 +5,7 @@ let
   vgtk = vars.colors.gtk;
   gtkFilePrefix = "file:///home/${vars.username}/";
   bookmarks = [ "/Downloads" "/Documents" "/Projects" "/Books" "/.config" ];
-in
-{
+in {
   gtk = {
     enable = true;
     font = {
@@ -25,9 +24,7 @@ in
       name = vgtk.cursor.name;
       package = vgtk.cursor.package;
     };
-    gtk3 = {
-      bookmarks = map (b: "${gtkFilePrefix}${b}") bookmarks;
-    };
+    gtk3 = { bookmarks = map (b: "${gtkFilePrefix}${b}") bookmarks; };
   };
 }
-        
+
