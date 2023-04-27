@@ -2,6 +2,13 @@
 
 let
   vars = import ../variables.nix;
+  shellScripts = import ./shell { pkgs = pkgs;};
+
+  # Shell packages
+  shellPackages = with pkgs; [
+    shellScripts.organizeFiles
+  ];
+
   # Fonts
   fonts = {
     packages = with pkgs;
@@ -10,17 +17,18 @@ let
 
   # Development Tools
   dev = {
-    packages = with pkgs; [
-      keepassxc
-      neovim
-      python3
-      vim
-      git
-      gh
-      vscode
-      nixbang # Specify dependencies inside of a script
-      nixfmt # Format nix files
-    ];
+    packages = with pkgs;
+      [
+        keepassxc
+        python3
+        vim
+        git
+        gh
+        vscode
+        projectlibre
+        nixbang # Specify dependencies inside of a script
+        nixfmt # Format nix files
+      ];
     config = import ./dev;
   };
 
@@ -33,42 +41,76 @@ let
   # System Utilities
   utils = {
     packages = with pkgs; [
+      gnome.gnome-keyring
+      gnome.libgnome-keyring
       killall
       xclip
+      vlc
       wget
       xorg.xev
       bc
-      flameshot
-      jgmenu
-      dconf
-      appimage-run
-      betterlockscreen
       unzip
-      gnome.nautilus
-      mupdf
-      tdesktop
-      zathura
     ];
     config = import ./utils;
   };
 
+  # Desktop specific utils
+  desktop = {
+    packages = with pkgs; [
+      flameshot
+      jgmenu
+      dconf
+      feh
+      betterlockscreen
+    ];
+  };
+
+  messaging = {
+    packages = with pkgs; [
+      tdesktop
+    ];
+  };
+
+  media = {
+    packages = with pkgs; [
+      vlc
+      xfce.thunar
+    ];
+  };
+
+  office = {
+    packages = with pkgs; [
+      zathura
+      libreoffice
+      drawing
+      mupdf
+      abiword
+    ];
+  };
+
   essentials = {
-    packages = with pkgs; [ bspwm sxhkd zsh pure-prompt ];
+    packages = with pkgs; [ bspwm sxhkd zsh pure-prompt firefox];
     config = import ./essentials;
   };
 
   customizations = {
-    packages = with pkgs; [ picom ];
+    packages = with pkgs; [ picom lxappearance];
     config = import ./customizations;
   };
 
   # Combine all packages and configuration files
   packages = with pkgs; [
+    shellPackages
     fonts.packages
     dev.packages
     productivity.packages
-    utils.packages
     customizations.packages
+    office.packages
+    # Utilities
+    utils.packages
+    desktop.packages
+    media.packages
+    messaging.packages
   ];
 
   configFiles = [

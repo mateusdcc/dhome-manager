@@ -10,6 +10,7 @@
       "super + b" = "firefox";
       "super + l" = "firefox --private-window";
       "super + x" = "betterlockscreen -l";
+      "super + v" = "(betterlockscreen -l) & (sleep 3; systemctl suspend)";
       "XF86AudioRaiseVolume" = "amixer set Master 5%+";
       "XF86AudioLowerVolume" = "amixer set Master 5%-";
       "super + shift + {e,r}" = "bspc {quit,wm -r}";
@@ -28,7 +29,7 @@
         xrandr --output eDP-1 --brightness $(echo "$(xrandr --verbose | grep -m 1 'Brightness:' | cut -f2 -d ' ') + 0.1" | bc)'';
       "XF86Explorer" = ''
         xrandr --output eDP-1 --brightness $(echo "$(xrandr --verbose | grep -m 1 'Brightness:' | cut -f2 -d ' ') - 0.1" | bc)'';
-      "super + shift + q" = "bspc node -{c,k}";
+      "super + shift + q" = "bspc node -c";
     };
   };
 }

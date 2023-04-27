@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./flameshot ];
+  imports = [ ./flameshot ./desktop];
 }

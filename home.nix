@@ -7,6 +7,7 @@ in {
 
   home.stateVersion = "22.11";
 
+
   imports = [ ./packages ./customization ];
 
   nixpkgs.config.allowUnfree = true;

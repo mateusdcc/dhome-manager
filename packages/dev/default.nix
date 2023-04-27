@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 let vars = import ../variables.nix;
-in { imports = [ ./git ./vscode ]; }
+in { imports = [ ./git ./vscode ./neovim]; }
 

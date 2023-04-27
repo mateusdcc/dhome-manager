@@ -19,6 +19,11 @@ with import <nixpkgs> { };
     color_theme = "Dracula";
     package = pkgs.vscode-extensions.dracula-theme.theme-dracula;
   };
+  neovim = {
+    name = "dracula";
+    package = pkgs.vimPlugins.dracula-nvim;
+  };
+  wallpaper = ./geometry-dracula.png;
   background = "#282a36";
   current_line = "#44475a";
   foreground = "#f8f8f2";

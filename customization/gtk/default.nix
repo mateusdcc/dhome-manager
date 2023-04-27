@@ -4,7 +4,8 @@ let
   vars = import ../../variables.nix;
   vgtk = vars.colors.gtk;
   gtkFilePrefix = "file:///home/${vars.username}/";
-  bookmarks = [ "/Downloads" "/Documents" "/Projects" "/Books" "/.config" ];
+  bookmarks =
+    [ "/Downloads" "/Documents" "/Projects" "/Books" "/.config" ];
 in {
   gtk = {
     enable = true;

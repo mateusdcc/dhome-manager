@@ -1,0 +1,3 @@
+{
+  pow = import ./pow.nix;
+}
