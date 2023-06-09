@@ -2,12 +2,10 @@
 
 let
   vars = import ../variables.nix;
-  shellScripts = import ./shell { pkgs = pkgs;};
+  shellScripts = import ./shell { pkgs = pkgs; };
 
   # Shell packages
-  shellPackages = with pkgs; [
-    shellScripts.organizeFiles
-  ];
+  shellPackages = with pkgs; [ shellScripts.organizeFiles ];
 
   # Fonts
   fonts = {
@@ -17,18 +15,19 @@ let
 
   # Development Tools
   dev = {
-    packages = with pkgs;
-      [
-        keepassxc
-        python3
-        vim
-        git
-        gh
-        vscode
-        projectlibre
-        nixbang # Specify dependencies inside of a script
-        nixfmt # Format nix files
-      ];
+    packages = with pkgs; [
+      python3
+      rustup
+      vim
+      git
+      gh
+      vscode
+      projectlibre
+      geogebra6 # Don't be a moron, software development is pure math.
+      nixbang # Specify dependencies inside of a script
+      nixfmt
+      texlive.combined.scheme-full
+    ];
     config = import ./dev;
   };
 
@@ -45,56 +44,40 @@ let
       gnome.libgnome-keyring
       killall
       xclip
+      htop
       vlc
+      ffmpeg
       wget
       xorg.xev
       bc
       unzip
+      keepassxc
     ];
     config = import ./utils;
   };
 
   # Desktop specific utils
   desktop = {
-    packages = with pkgs; [
-      flameshot
-      jgmenu
-      dconf
-      feh
-      betterlockscreen
-    ];
+    packages = with pkgs; [ flameshot jgmenu dconf feh betterlockscreen ];
   };
 
-  messaging = {
-    packages = with pkgs; [
-      tdesktop
-    ];
-  };
+  messaging = { packages = with pkgs; [ tdesktop ]; };
 
-  media = {
-    packages = with pkgs; [
-      vlc
-      xfce.thunar
-    ];
-  };
+  media = { packages = with pkgs; [ vlc xfce.thunar ]; };
 
   office = {
-    packages = with pkgs; [
-      zathura
-      libreoffice
-      drawing
-      mupdf
-      abiword
-    ];
+    packages = with pkgs; [ zathura libreoffice drawing mupdf abiword sioyek ];
   };
 
+  others = { packages = with pkgs; [ grapejuice ]; };
+
   essentials = {
-    packages = with pkgs; [ bspwm sxhkd zsh pure-prompt firefox];
+    packages = with pkgs; [ bspwm sxhkd zsh pure-prompt firefox gcc ];
     config = import ./essentials;
   };
 
   customizations = {
-    packages = with pkgs; [ picom lxappearance];
+    packages = with pkgs; [ picom lxappearance pavucontrol ];
     config = import ./customizations;
   };
 
@@ -106,6 +89,7 @@ let
     productivity.packages
     customizations.packages
     office.packages
+    others.packages
     # Utilities
     utils.packages
     desktop.packages

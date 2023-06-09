@@ -15,9 +15,11 @@
       bindkey '^f' autosuggest-accept
       bindkey -v
       export PATH="$HOME/.local/usr/bin:$PATH"
+      export PATH="$HOME/.local/bin:$PATH"
       export PATH="$HOME/.local/venv/bin:$PATH"
       export PATH="$HOME/.local/usr/node/bin:$PATH"
       export PATH="$HOME/.cargo/bin:$PATH"
+      export PATH="$HOME/.rustup/toolchains/**/bin:$PATH"
       VI_MODE_RESET_PROMPT_ON_MODE_CHANGE=true
       VI_MODE_SET_CURSOR=true
       MODE_INDICATOR="%F{white}+%f"

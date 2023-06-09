@@ -11,6 +11,7 @@ in {
   imports = [ ./packages ./customization ];
 
   nixpkgs.config.allowUnfree = true;
+  nixpkgs.config.permittedInsecurePackages = ["electron-14.2.9"];
   news.display = "notify";
 
   programs.home-manager.enable = true;

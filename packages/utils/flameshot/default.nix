@@ -7,6 +7,7 @@
       General = {
         disabledTrayIcon = true;
         showStartupLaunchMessage = false;
+        uploadHistoryMax = 2;
       };
     };
   };

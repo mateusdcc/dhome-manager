@@ -1,3 +1,1 @@
-{
-  imports = [ ./jgmenu ];
-}
+{ imports = [ ./jgmenu ./sioyek ]; }
