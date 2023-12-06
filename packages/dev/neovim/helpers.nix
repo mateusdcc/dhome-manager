@@ -1,7 +1,7 @@
 { pkgs, lib, ... }:
 
 let
-  inherit (builtins) concatLists concatMap attrNames hasAttr;
+  inherit (builtins) concatLists concatMap attrNames hasAttr typeOf;
   isNix = path:
     let firstLine = builtins.head (builtins.split "\n" path);
     in lib.hasPrefix "--" firstLine && lib.hasSuffix ".lua" firstLine;
@@ -25,6 +25,46 @@ let
           } 
         '') keys;
       in lib.strings.concatStrings keysEq;
+
+    setWhichKey = set:
+      let
+        mains = builtins.attrNames set;
+        toAppend = map (x:
+          let
+            mainName = ''
+              [${x}] = {
+            '';
+
+            isSet = typeOf set.${x} == "set";
+            toAppend = if isSet then
+              map (z:
+                let
+                  submainName = ''
+                    ${z} = {
+                  '';
+                  toAppend = map (y:
+                    let
+                      key = "${y} = ";
+                      value = set.${x}.${z}.${y};
+                    in if (typeOf value == "string") then
+                      ''${y} = "${value}"''
+                    else if (typeOf value == "list") then
+                      "${y} = { ${
+                        lib.concatMapStringsSep "," (a: ''"'' + a + ''"'') value
+                      } }"
+                    else
+                      "${y} = ${value}") (builtins.attrNames set.${x}.${z});
+                in "${submainName} ${builtins.concatStringsSep "," toAppend} }")
+              (builtins.attrNames set.${x})
+            else
+              "${lib.concatMapStringsSep "," (l: ''"'' + l + ''"'') set.${x}}}";
+          in if isSet then
+            "${mainName} ${builtins.concatStringsSep " " toAppend} }"
+          else
+            "${mainName} ${toAppend}") mains;
+
+        finalString = "${builtins.concatStringsSep "," toAppend}";
+      in finalString;
   };
 
   convertToRequire = { string ? "lua.file" }: "require'${string}'";
@@ -68,7 +108,7 @@ in {
   toPlugin = toPlugin;
   getAllItems = getAllItems;
   getAllSets = getAllSets;
-  convertToLua = convertToLua;
+  convertToLua = (import ./configs).convertToLua;
   createFiles = createFiles;
   convertToRequire = convertToRequire;
 }

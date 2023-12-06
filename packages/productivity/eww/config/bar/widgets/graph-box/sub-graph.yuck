@@ -1,0 +1,11 @@
+(defwidget sub-graph [value text time-range ?min max]
+  (button
+    :class "graph cpu-graph"
+    :halign "end"
+    :orientation "h"
+    (overlay
+      (graph :value "${value}" :thickness 1.0 :time-range "${time-range}" :min "${min ? min : 0}" :max "${max}" :dynamic false)
+      (label :class "graph-text" :text text)
+    )
+  )
+)

@@ -1,0 +1,11 @@
+(defpoll uptime-poll :interval "5m"
+  :initial "0"
+  `uptime | awk '{print $3"d"}'`
+)
+
+(defwidget uptime []
+  (box :class "uptime-box"
+    (label :text "${uptime-poll}⬆")
+  )
+)
+

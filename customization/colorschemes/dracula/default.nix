@@ -23,10 +23,17 @@ with import <nixpkgs> { };
     name = "dracula";
     package = pkgs.vimPlugins.dracula-nvim;
   };
-  wallpaper = ./geometry-dracula.png;
+  wallpaper = {
+    generate = false;
+    source = ./geometry-dracula.png;
+    mode = "fill";
+  };
   background = "#282a36";
   current_line = "#44475a";
   foreground = "#f8f8f2";
+  darker-bg = "#1b1d26";
+  lighter-bg = "#35394c";
+  mix-bg-fg = "#b556b6";
   comment = "#6272a4";
   cyan = "#8be9fd";
   green = "#50fa7b";

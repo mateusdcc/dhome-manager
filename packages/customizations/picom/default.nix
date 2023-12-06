@@ -4,7 +4,7 @@
   services.picom = {
     enable = true;
     fade = true;
-    #fadeDelta = 20;
+    fadeExclude = ["class_g = 'Eww'"];
     fadeSteps = [ 5.0e-2 5.0e-2 ];
     shadow = false;
     shadowOpacity = 0.2;

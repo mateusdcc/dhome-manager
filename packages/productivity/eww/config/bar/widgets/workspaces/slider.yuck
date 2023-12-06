@@ -1,0 +1,12 @@
+(defwidget workspaces-slider []
+    (scale :class "workspaces"
+      :flipped false
+      :marks "|"
+      :round-digits 0
+      :value active-workspace
+      :min 1.0
+      :max 11.0
+      :onchange "bspc desktop -f {}; "
+      :orientation "h"
+  )
+)

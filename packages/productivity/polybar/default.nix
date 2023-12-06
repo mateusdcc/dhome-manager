@@ -11,7 +11,7 @@ in
     #config = ./polybar.config;
     config = {
       "bar/main" = {
-        height = 32;
+        height = 45;
         foreground = colors.foreground;
         background = colors.background;
         border-size = 0;

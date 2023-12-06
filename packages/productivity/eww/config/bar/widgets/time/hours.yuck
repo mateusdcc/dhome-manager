@@ -1,0 +1,8 @@
+(defwidget hours []
+  (label
+    :class "time"
+    :text "${formattime(EWW_TIME, "%H:%M:%S", "America/Sao_Paulo")}"
+    :justify "center"
+  )
+)
+

@@ -1,0 +1,13 @@
+(include "./bar/widgets/info-box/content.yuck")
+(include "./bar/widgets/info-box/audio-box/audio-box.yuck")
+
+(defwidget info-box []
+  (box
+    :space-evenly true
+    :class "innerstuff spaced"
+    (content :text "/: ${round(EWW_DISK["/"].free / 1000000000, 2)} GB")
+    (audio-box)
+    (content :text "✧ ${EWW_BATTERY["BAT0"].capacity}%")
+    (content :text "⏚ ${round(EWW_CPU.avg, 3)}")
+  )
+)

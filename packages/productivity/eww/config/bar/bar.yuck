@@ -1,0 +1,45 @@
+(include "./bar/widgets/workspaces/workspaces.yuck")
+(include "./bar/widgets/graph-box/graph-box.yuck")
+(include "./bar/widgets/uptime/uptime.yuck")
+(include "./bar/widgets/time/hours.yuck")
+(include "./bar/widgets/time/month-day.yuck")
+(include "./bar/widgets/middle-button/middle-button.yuck")
+(include "./bar/widgets/info-box/info-box.yuck")
+(include "./bar/widgets/power-applet/power-applet.yuck")
+(defvar power false)
+
+(defwidget rightstuff []
+  (box :space-evenly false
+    (workspaces)
+    (graph-box)
+    (box :hexpand true)
+    (uptime)
+  )
+)
+
+
+(defwidget middlestuff []
+  (box :class "middlestuff" :orientation "h" :space-evenly true :halign "end"
+    (hours)
+    (middle-button)
+    (month-day)
+  )
+)
+
+
+(defwidget leftstuff []
+  (box :hexpand true :halign "end"
+    (box :class "leftstuff" :orientation "h" :space-evenly false :halign "center"
+      (info-box)
+      (power-applet)
+    )
+  )
+)
+
+(defwidget bar []
+  (centerbox :orientation "h" :class "bar" :space-evenly true
+    (rightstuff)
+    (middlestuff)
+    (leftstuff)
+  )
+)

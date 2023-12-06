@@ -1,0 +1,43 @@
+(defpoll w1
+  :interval "3s"
+  :initial "0"
+  `((bspc query -d 1 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w2 :interval "3s"
+  :initial "0"
+  `((bspc query -d 2 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w3 :interval "3s"
+  :initial "0"
+  `((bspc query -d 3 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w4 :interval "3s"
+  :initial "0"
+  `((bspc query -d 4 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w5 :interval "3s"
+  :initial "0"
+  `((bspc query -d 5 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w6 :interval "3s"
+  :initial "0"
+  `((bspc query -d 6 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w7 :interval "3s"
+  :initial "0"
+  `((bspc query -d 7 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w8 :interval "3s"
+  :initial "0"
+  `((bspc query -d 8 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll w9 :interval "3s"
+  :initial "0"
+  `((bspc query -d 9 --nodes && echo 1)||echo 0) | tail -1`
+)
+(defpoll wA :interval "3s"
+  :initial "0"
+  `((bspc query -d 10 --nodes && echo 1)||echo 0) | tail -1`
+)
+
+

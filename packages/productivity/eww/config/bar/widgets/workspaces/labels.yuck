@@ -1,0 +1,57 @@
+(include "./bar/variables/workspace_active.yuck")
+(include "./gvars/bspwm.yuck")
+
+(defwidget workspaces-label []
+  (box :class "btns-work" :halign "start"
+    (label
+      :class "btn-work-1"
+      :style "color: ${((w1 == "0")||(active-workspace == "1")) ? foreground : comment}"
+      :text "1 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w2 == "0")||(active-workspace == "2")  ? foreground : comment}"
+      :text "2 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w3 == "0")||(active-workspace == "3")  ? foreground : comment}"
+      :text "3 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w4 == "0")||(active-workspace == "4")  ? foreground : comment}"
+      :text "4 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w5 == "0")||(active-workspace == "5")  ? foreground : comment}"
+      :text "5 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w6 == "0")||(active-workspace == "6")  ? foreground : comment}"
+      :text "6 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w7 == "0")||(active-workspace == "7")  ? foreground : comment}"
+      :text "7 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w8 == "0")||(active-workspace == "8")  ? foreground : comment}"
+      :text "8 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(w9 == "0")||(active-workspace == "9")  ? foreground : comment}"
+      :text "9 "
+    )
+    (label
+      :class "btn-work"
+      :style "color: ${(wA == "0")||(active-workspace == "10")  ? foreground : comment}"
+      :text "A  "
+    )
+  )
+)

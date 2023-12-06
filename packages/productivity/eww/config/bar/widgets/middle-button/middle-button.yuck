@@ -1,0 +1,12 @@
+(defwidget middle-button []
+  (button
+    :class "la-buton"
+    :onclick "${power ? "eww update power=false" : "eww update power=true"}"
+    (label
+      :class "time"
+      :text {power ? ">ᴗ<" : "•‿•"};"✘""˙ᵕ˙";"ⴵ";${formattime(EWW_TIME, "%Y", "America/Sao_Paulo")}"
+      :justify "center"
+    )
+  )
+)
+

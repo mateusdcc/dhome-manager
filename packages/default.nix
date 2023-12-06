@@ -7,10 +7,13 @@ let
   # Shell packages
   shellPackages = with pkgs; [ shellScripts.organizeFiles ];
 
+  # Node Packages
+  extraNodePackages = import ./node {};
+
   # Fonts
   fonts = {
-    packages = with pkgs;
-      [ (nerdfonts.override { fonts = [ "Iosevka" "FiraCode" ]; }) ];
+   packages = with pkgs;
+     [ (nerdfonts.override { fonts = [ "Iosevka" "FiraCode" "CascadiaCode" ]; }) ];
   };
 
   # Development Tools
@@ -27,13 +30,15 @@ let
       nixbang # Specify dependencies inside of a script
       nixfmt
       texlive.combined.scheme-full
+      node2nix
+      nodejs
     ];
     config = import ./dev;
   };
 
   # Productivity Applications
   productivity = {
-    packages = with pkgs; [ alacritty dmenu polybar picom pure-prompt xournal ];
+    packages = with pkgs; [ alacritty dmenu polybar picom pure-prompt xournal kdenlive eww todo];
     config = import ./productivity;
   };
 
@@ -46,12 +51,18 @@ let
       xclip
       htop
       vlc
+      mpv
       ffmpeg
       wget
       xorg.xev
+      xorg.xkill
+      xdotool
       bc
       unzip
       keepassxc
+      rclone
+      anki-bin
+      lame
     ];
     config = import ./utils;
   };
@@ -63,16 +74,25 @@ let
 
   messaging = { packages = with pkgs; [ tdesktop ]; };
 
-  media = { packages = with pkgs; [ vlc xfce.thunar ]; };
+  media = { packages = with pkgs; [ vlc xfce.thunar transmission-gtk ]; };
 
   office = {
-    packages = with pkgs; [ zathura libreoffice drawing mupdf abiword sioyek ];
-  };
+    packages = with pkgs; [ 
+    zathura
+    okular /* okular for epub reading */ 
+    libreoffice
+    drawing
+    mupdf
+    abiword
+    sioyek
+    (obsidian.overrideAttrs {version="1.4.16";})
+  ];
+};
 
-  others = { packages = with pkgs; [ grapejuice ]; };
+  others = { packages = with pkgs; [ blender ]; };
 
   essentials = {
-    packages = with pkgs; [ bspwm sxhkd zsh pure-prompt firefox gcc ];
+    packages = with pkgs; [ bspwm pulseaudio sxhkd zsh pure-prompt firefox gcc inotify-tools dunst libnotify];
     config = import ./essentials;
   };
 
@@ -105,6 +125,6 @@ let
     customizations.config
   ];
 in {
-  home.packages = builtins.concatLists packages;
   imports = configFiles;
+  home.packages = builtins.concatLists packages;
 }

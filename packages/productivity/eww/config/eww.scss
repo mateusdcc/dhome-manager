@@ -1,0 +1,246 @@
+@import "/home/pitagoras/.colors.scss"
+
+* {
+  all: unset;
+}
+
+.poplist {
+  color: $background;
+  background-color: $background;
+  padding: 5;
+  border-width: 1px;
+  border-color: $darker-bg;
+  border-style: solid;
+  border-radius: 4px;
+}
+
+.poplistitems {
+  background-color: $comment;
+  border-radius: inherit;
+}
+
+.poplisttext {
+  color: red;
+}
+
+//Global Styles
+.bar {
+  padding: 7px;
+  background-color: $background;
+  border-style: solid;
+  border-width: 0.1px;
+  border-color: $foreground;
+}
+
+.graph-box {
+  min-width: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  margin-left: 5px;
+  border-radius: 8px;
+}
+
+.graph {
+  background-color: $comment;
+  min-width: 50px;
+  margin-bottom: 2.5;
+  margin-top: 2.5;
+  border-radius: 5px;
+  border-style: ridge;
+  border-width: 0.5px;
+  border-color: $background;
+}
+
+.cpu-graph {
+  margin-right: 4px;
+}
+
+.graph-text {
+  opacity: .6;
+  transition: 0.2s;
+}
+.graph:hover .graph-text{
+  opacity: 1;
+  font-weight: bold;
+}
+
+.graph-text:hover {
+  opacity: 1
+}
+
+.innerstuff {
+  background-color: $background;
+  border-radius: 5px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+  padding-bottom: 1.5px;
+  padding-top: 1.5px;
+}
+
+.middlestuff,.leftstuff,.workspaces,.text {
+  background-image: url("/home/pitagoras/.gradient-image");
+  border-radius: 5px;
+  margin-left: 1.5px;
+  margin-right: 2px;
+  color: $foreground;
+}
+
+.leftstuff >* {
+  margin-left: 5px;
+}
+
+.middlestuff {
+  min-width: 195.143px;
+}
+
+.btn-work-1 {
+  margin-left: 10px;
+}
+
+.btn-work {
+  // color: $foreground;
+  margin-left: 6px;
+  margin-right: 3px;
+}
+
+.audio-slider {
+    margin-left: 20px;
+    min-width: 20px;
+}
+.popup {
+  background-color: $background;
+  //background-image: url("/home/pitagoras/.gradient-image");
+  min-width: 10px;
+  margin-top: 5px;
+  padding: 20px;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: $lighter-bg;
+  color: $foreground;
+  font-family: "CascadiaCode Nerdfont";
+}
+
+.audio-slider contents>trough>slider{
+  border-style: solid;
+  border-color: $background;
+  min-width: 9px;
+  min-height: 9px;
+  background-color: transparent;
+}
+
+.label {
+  margin-bottom: 22.5px;
+}
+
+.stoptime {
+  margin-top: 12.5px;
+}
+
+.twogrup {
+  min-height: 200px;
+}
+
+.stopwatch {
+  margin-bottom: 150px;
+}
+
+.stoptime {
+  margin-left: 38px;
+  font-style: oblique;
+}
+
+.uptime-box {
+  background-color: $comment;
+  color: $foreground;
+  font-weight: bold;
+  margin-left: 5px;
+  margin-right: 5px;
+  border-radius: 5px;
+  padding: 5px;
+}
+
+
+.workspaces {
+  min-width: 585.43px;
+  padding-left: 12.5px;
+  padding-right: 15px;
+  min-width: 25px;
+}
+
+.workspaces > * {
+    transition: 1s;
+  }
+
+.workspaces contents>trough>slider {
+  border-style: solid;
+  border-radius: 3px;
+  border-color: $background;
+  min-width: 9px;
+  min-height: 9px;
+  background-color: $foreground;
+}
+
+.workspaces contents>trough>* {
+  background-color: transparent;
+  border-radius: 300px;
+  transition: 1s;
+  min-width: 50px;
+}
+
+
+
+.el-buton {
+  background-color: $red;
+  color: $background;
+  min-width: 35px;
+  margin-right: 5px;
+  border-radius: 5px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  transition: 0.5s;
+  margin-left: 10px;
+}
+
+.el-buton:hover,.botton:hover {
+  background-color: $orange;
+  color: $background;
+}
+
+.reboot {
+  //transform: rotate(360deg);
+}
+
+.botton,.deactive {
+  background-color: $foreground;
+  color: $background;
+  min-width: 40px;
+  margin-left: 10px;
+  margin-top: 2.5px;
+  margin-bottom: 2.5px;
+  transition: 0.5s;
+}
+
+.deactive {
+  background-color: $comment;
+  color: $background;
+}
+
+.la-buton {
+  border-radius: 5px;
+  transition: 1s;
+}
+
+.spaced *{
+  padding-left: 3px;
+  padding-right: 3px;
+}
+
+.la-buton:hover {
+  background-color: $foreground;
+  color: $background;
+}
+
+.biggest {
+  min-width: 100px;
+}

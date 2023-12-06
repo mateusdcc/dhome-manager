@@ -23,7 +23,11 @@ with import <nixpkgs> {};
     name = "nord";
     package = pkgs.vimPlugins.nord-nvim;
   };
-  wallpaper = ./nord.png;
+  wallpaper = {
+    generate = false;
+    source = ./nord.png;
+    mode = "fill";
+  };
   background = "#2E3440";
   current_line = "#3B4252";
   foreground = "#D8DEE9";

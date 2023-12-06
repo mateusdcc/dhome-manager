@@ -1,0 +1,42 @@
+(defwidget power-applet []
+  (box
+    :halign "end"
+    :orientation "h"
+    :space-evenly false
+    :class "expand"
+    (button
+      :class "innerstuff poweroff ${power ? "botton" : "deactive"}"
+      :onclick "${power ? "poweroff" : ""}"
+      :tooltip "poweroff"
+      (label :text "⏻")
+    )
+    (button
+      :class "innerstuff reboot ${power ? "botton" : "deactive"}"
+      :onclick "${power ? "reboot" : ""}"
+      :tooltip "reboot"
+      (label :text "↺")
+    )
+    (button
+      :class "el-buton"
+      :onclick "${power ? "eww update power=false" : "eww update power=true"}"
+      (overlay
+        (revealer
+          :reveal power
+          (label
+            :class "time"
+            :text "ꗃ"
+            :justify "center"
+          )
+        )
+        (revealer
+          :reveal "${!power}"
+          (label
+            :class "time"
+            :text "⚷"
+            :justify "center"
+          )
+        )
+      )
+    )
+  )
+)

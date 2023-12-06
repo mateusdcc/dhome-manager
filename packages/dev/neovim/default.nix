@@ -14,6 +14,7 @@ let
         configs = [ ./lua/example.lua ];
       };
       python = { plugins = [ "coc-python" ]; };
+      yuck = { plugins = ["yuck-vim"]; };
     };
     # ui = { theme = { plugins = [ "gruvbox" ]; }; };
     general = {
@@ -58,10 +59,12 @@ let
   headersVimImportingConfigsFiles =
     lib.strings.concatMapStringsSep "\n" (path: "source '${path}' ") vimConfigs;
 
+  enabledPlugins = [ ];
+
 in {
   programs.neovim = {
     enable = true;
-    plugins = vimPlugins ++ [ vars.colors.neovim.package ];
+    plugins = vimPlugins ++ [ vars.colors.neovim.package ] ++ enabledPlugins;
     extraLuaConfig = ''
 
       ${headersLuaImportingConfigsFiles}

@@ -1,0 +1,13 @@
+(defwidget audio-box []
+  (overlay
+    (content :text "☊ ${audio}%")
+    (scale
+      :class "audio-slider"
+      :value audio
+      :onchange "amixer set Master {}%; eww update audio={}"
+      :max 101
+      :min 0
+    )
+  )
+)
+

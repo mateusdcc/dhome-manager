@@ -1,5 +1,5 @@
 { pkgs, ... }:
 
 {
-  imports = [ ./polybar ./alacritty ];
+  imports = [ ./polybar ./alacritty ./eww];
 }

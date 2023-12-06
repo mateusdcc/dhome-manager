@@ -1,0 +1,5 @@
+(defpoll active-workspace :interval "0.25s"
+  :initial "1"
+  :run-while true
+  `bspc query -D --names --desktop`
+)

@@ -1,0 +1,20 @@
+(include "./bar/widgets/graph-box/sub-graph.yuck")
+
+(defwidget graph-box []
+  (box
+    :class "graph-box"
+    (sub-graph
+      :value "${round(EWW_CPU.avg, 3)}"
+      :text "CPU"
+      :time-range 5000
+      :max 100
+    )
+    (sub-graph
+      :value "${round(EWW_RAM.used_mem_perc, 10)}"
+      :text "RAM"
+      :time-range 5000
+      :max 100
+    )
+  )
+)
+

@@ -11,7 +11,7 @@
       "super + l" = "firefox --private-window";
       "super + x" = "betterlockscreen -l";
       "super + v" = "(betterlockscreen -l) & (sleep 3; systemctl suspend)";
-      "XF86AudioRaiseVolume" = "amixer set Master 5%+";
+      "XF86AudioRaiseVolume" = "amixer set Master 5%+; eww update audio={}";
       "XF86AudioLowerVolume" = "amixer set Master 5%-";
       "super + shift + {e,r}" = "bspc {quit,wm -r}";
       "super + m" = "bspc desktop -l next";

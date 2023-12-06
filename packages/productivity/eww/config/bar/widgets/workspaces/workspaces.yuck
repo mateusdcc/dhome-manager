@@ -1,0 +1,10 @@
+(include "./bar/widgets/workspaces/labels.yuck")
+(include "./bar/widgets/workspaces/slider.yuck")
+
+(defwidget workspaces []
+  (overlay
+    :hexpand true
+    (workspaces-slider)
+    (workspaces-label)
+  )
+)

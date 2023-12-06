@@ -21,6 +21,7 @@ in {
       };
       font = {
         normal.family = vars.font;
+        normal.style = "Regular";
         size = 8;
       };
       shell = vars.shell;

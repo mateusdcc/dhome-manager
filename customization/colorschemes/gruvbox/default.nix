@@ -23,7 +23,11 @@ with import <nixpkgs> {};
     name = "gruvbox";
     package = pkgs.vimPlugins.gruvbox-nvim;
   };
-  wallpaper = ./gruvbox.png;
+  wallpaper = {
+    generate = true;
+    source = ./gruvbox.png;
+    mode = "fill";
+  };
   background = "#282828";
   current_line = "#3c3836";
   foreground = "#ebdbb2";
